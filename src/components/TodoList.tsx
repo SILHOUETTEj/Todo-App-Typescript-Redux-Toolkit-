@@ -9,21 +9,21 @@ const TodoList = () => {
     return(
         <div className={styles.TodoList}>
             <div className={styles.TodoList__container}>
-            <h1 className={styles.TodoList__container__title}>TodoList</h1>
-            <div className={styles.TodoList__container__form}>
+            <h1 className={styles.TodoList__title}>TodoList</h1>
+            <div className={styles.TodoList__form}>
                 <TextField  
                     label="Todo"
                     id="fullWidth"
                     size="small" 
-                    className={styles.TodoList__container__form__todoInput}/>
+                    className={styles.TodoList__todoInput}/>
                 <Button 
                     variant="outlined"
-                    className={styles.TodoList__container__form__addTodoBtn}>Add Todo</Button>
+                    className={styles.TodoList__addTodoBtn}>Add Todo</Button>
                 <Button 
                     variant="outlined"
                     color="error" 
-                    className={styles.TodoList__container__form__clearTodosBtn}
-                    >Clear Todo's
+                    className={styles.TodoList__clearTodosBtn}
+                    >Clear Todos
                     <DeleteIcon color="error" />
                     </Button>
             </div>
