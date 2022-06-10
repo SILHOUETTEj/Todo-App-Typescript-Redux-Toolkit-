@@ -5,6 +5,7 @@
     margin: auto;
     height: 100vh;
 }
+
 .TodoList__form {
     margin: auto;
     margin-top: 50px;
@@ -12,6 +13,7 @@
     display: flex;
     justify-content: space-around;
 }
+
 .TodoList__clearTodosBtn {
     display: flex;
     justify-content: space-between;
