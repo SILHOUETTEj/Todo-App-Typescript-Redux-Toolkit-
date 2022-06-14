@@ -1,7 +1,6 @@
-import React from "react";
+import DeleteIcon from "@mui/icons-material/Delete";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import DeleteIcon from "@mui/icons-material/Delete";
 import styles from "./TodoList.module.css";
 
 const TodoList = () => {
