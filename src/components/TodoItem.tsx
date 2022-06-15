@@ -1,12 +1,12 @@
 import DeleteIcon from "@mui/icons-material/Delete";
-import { Button, Checkbox } from "@mui/material";
-import { TodoItem } from "../store/todolist/todoSlice";
+import {Button, Checkbox} from "@mui/material";
+import {TodoItem} from "../store/todolist/todoSlice";
 import styles from "./TodoItem.module.css";
 
 type TodoItemProps = {
   data: TodoItem;
 };
-const TodoItemComponent = ({ data }: TodoItemProps) => {
+const TodoItemComponent = ({data}: TodoItemProps) => {
   return (
     <li className={styles.TodoItem}>
       <div className={styles.TodoItem__container}>
