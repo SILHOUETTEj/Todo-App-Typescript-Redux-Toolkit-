@@ -11,7 +11,7 @@
   margin-top: 50px;
   width: 60%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .TodoList__clearTodosBtn {
