@@ -1,0 +1,20 @@
+.TodoList__container {
+  padding-top: 50px;
+  width: 70%;
+  background-color: rgb(228, 231, 253);
+  margin: auto;
+  height: 100vh;
+}
+
+.TodoList__form {
+  margin: auto;
+  margin-top: 50px;
+  width: 60%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.TodoList__clearTodosBtn {
+  display: flex;
+  justify-content: space-between;
+}
