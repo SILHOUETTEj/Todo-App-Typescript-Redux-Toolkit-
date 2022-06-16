@@ -16,4 +16,28 @@
 .TodoItem__text {
   text-align: start;
   width: 60%;
+  overflow: hidden;
+}
+@media (max-width: 1230px) {
+  .TodoItem__container {
+    width: 90%;
+    padding: 10px;
+  }
+  .TodoItem__checkbox {
+    width: 10px;
+  }
+}
+@media (max-width: 575px) {
+  .TodoItem__container {
+    width: 90%;
+    padding: 10px;
+  }
+  .TodoItem__checkbox {
+    width: 10px;
+  }
+  .TodoItem__deleteTodoBtn{
+    width: 100px;
+    height: 25px;
+  }
+
 }

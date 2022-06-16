@@ -28,6 +28,9 @@
       "error",
       {
         "endOfLine": "auto"
+      },
+      {
+        "bracketSpacing": true
       }
     ],
     "react/react-in-jsx-scope": "off"
