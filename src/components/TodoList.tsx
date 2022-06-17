@@ -1,9 +1,9 @@
 import DeleteIcon from "@mui/icons-material/Delete";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import {useState} from "react";
-import {useAppDispatch, useAppSelector} from "../store/hooks";
-import {addTodo, clearTodos} from "../store/todolist/todoSlice";
+import { useState } from "react";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
+import { addTodo, clearTodos } from "../store/todolist/todoSlice";
 import TodoItemComponent from "./TodoItem";
 import styles from "./TodoList.module.css";
 

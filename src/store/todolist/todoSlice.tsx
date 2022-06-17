@@ -26,10 +26,13 @@ export const todoSlice = createSlice({
     clearTodos: (state) => {
       state.value = [];
     },
+    deleteTodo: (state, action: PayloadAction<number>) => {
+      state.value = state.value.filter((el) => el.id !== action.payload);
+    },
   },
 });
 
-export const { addTodo, clearTodos } = todoSlice.actions;
+export const { addTodo, clearTodos, deleteTodo } = todoSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectTodos = (state: RootState) => state.todos.value;
