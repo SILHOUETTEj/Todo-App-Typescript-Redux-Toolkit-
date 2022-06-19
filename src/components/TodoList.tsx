@@ -12,13 +12,7 @@ const TodoList = () => {
   const state = useAppSelector((state) => state.todos.value);
   const dispatch = useAppDispatch();
   const addTodoHandler = () => {
-    dispatch(
-      addTodo({
-        id: new Date().getTime(),
-        text: inputState,
-        status: false,
-      })
-    );
+    dispatch(addTodo(inputState));
     setInputState("");
   };
   const clearTodosHandler = () => {

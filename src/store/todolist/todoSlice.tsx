@@ -20,8 +20,12 @@ export const todoSlice = createSlice({
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
-    addTodo: (state, action: PayloadAction<TodoItem>) => {
-      state.value.push(action.payload);
+    addTodo: (state, action: PayloadAction<string>) => {
+      state.value.push({
+        id: new Date().getTime(),
+        text: action.payload,
+        status: false,
+      });
     },
     clearTodos: (state) => {
       state.value = [];
