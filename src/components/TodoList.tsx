@@ -15,6 +15,7 @@ const TodoList = () => {
     dispatch(addTodo(inputState));
     setInputState("");
   };
+
   const clearTodosHandler = () => {
     dispatch(clearTodos());
     setInputState("");

@@ -6,6 +6,7 @@ export interface TodoItem {
   text: string;
   status: boolean;
 }
+
 interface TodoState {
   value: TodoItem[];
 }
