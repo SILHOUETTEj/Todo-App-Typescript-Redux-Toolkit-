@@ -1,0 +1,50 @@
+.TodoItem {
+  list-style: none;
+}
+
+.TodoItem__container {
+  margin: 20px auto;
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border: 1px solid blue;
+  border-radius: 10px;
+  padding: 10px 0;
+}
+
+.TodoItem__text {
+  text-align: start;
+  width: 60%;
+  overflow: hidden;
+}
+
+@media (max-width: 1230px) {
+
+  .TodoItem__container {
+    width: 90%;
+    padding: 10px;
+  }
+
+  .TodoItem__checkbox {
+    width: 10px;
+  }
+
+}
+@media (max-width: 575px) {
+
+  .TodoItem__container {
+    width: 90%;
+    padding: 10px;
+  }
+
+  .TodoItem__checkbox {
+    width: 10px;
+  }
+
+  .TodoItem__deleteTodoBtn {
+    width: 100px;
+    height: 25px;
+  }
+  
+}

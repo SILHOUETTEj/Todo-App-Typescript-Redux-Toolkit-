@@ -1,24 +1,45 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import type { RootState } from "./../store";
 
-export interface TodoState {
-    value: string[]
-  }
-  
-  const initialState: TodoState = {
-    value: [],
-  }
+export interface TodoItem {
+  id: number;
+  text: string;
+  status: boolean;
+}
+
+interface TodoState {
+  value: TodoItem[];
+}
+
+// Define the initial state using that type
+const initialState: TodoState = {
+  value: [],
+};
+
 export const todoSlice = createSlice({
-    name: 'todoList',
-    [],
-    reducers: {
-      addTodo: (state) => {
-        state.push(value)
-      },
-      clearTodos: (state) => {
-        state = initialState.value
-      },
-      deleteTodo: (state, action: PayloadAction<number>) => {
-        state.filter(item => item.id != action)
-      },
+  name: "todolist",
+  // `createSlice` will infer the state type from the `initialState` argument
+  initialState,
+  reducers: {
+    addTodo: (state, action: PayloadAction<string>) => {
+      state.value.push({
+        id: new Date().getTime(),
+        text: action.payload,
+        status: false,
+      });
     },
-  })
+    clearTodos: (state) => {
+      state.value = [];
+    },
+    deleteTodo: (state, action: PayloadAction<number>) => {
+      state.value = state.value.filter((el) => el.id !== action.payload);
+    },
+  },
+});
+
+export const { addTodo, clearTodos, deleteTodo } = todoSlice.actions;
+
+// Other code such as selectors can use the imported `RootState` type
+export const selectTodos = (state: RootState) => state.todos.value;
+
+export default todoSlice.reducer;

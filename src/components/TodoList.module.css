@@ -3,7 +3,7 @@
   width: 70%;
   background-color: rgb(228, 231, 253);
   margin: auto;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .TodoList__form {
@@ -11,10 +11,33 @@
   margin-top: 50px;
   width: 60%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .TodoList__clearTodosBtn {
   display: flex;
   justify-content: space-between;
+}
+
+@media (max-width: 1230px) {
+
+  .TodoList__form {
+    height: 100px;
+    width: 90%;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: space-between;
+  }
+
+  .TodoList__todoInput {
+    width: 100%;
+  }
+
+}
+@media (max-width: 575px) {
+
+  .TodoList__container {
+    width: 100%;
+  }
+  
 }
