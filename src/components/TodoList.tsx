@@ -12,12 +12,22 @@ const TodoList = () => {
   const state = useAppSelector((state) => state.todos.value);
   const dispatch = useAppDispatch();
   const addTodoHandler = () => {
-    dispatch(addTodo(inputState));
+    dispatch(
+      addTodo({
+        id: new Date().getTime(),
+        text: inputState,
+        status: false,
+      })
+    );
     setInputState("");
   };
 
   const clearTodosHandler = () => {
     dispatch(clearTodos());
+    setInputState("");
+  };
+
+  const asyncAddTodoHandler = () => {
     setInputState("");
   };
 
@@ -38,14 +48,24 @@ const TodoList = () => {
             variant="outlined"
             onClick={addTodoHandler}
             className={styles.TodoList__addTodoBtn}
+            size="small"
           >
             Add Todo
+          </Button>
+          <Button
+            variant="outlined"
+            onClick={asyncAddTodoHandler}
+            className={styles.TodoList__asyncAddTodoBtn}
+            size="small"
+          >
+            Add Todo(Async)
           </Button>
           <Button
             variant="outlined"
             color="error"
             className={styles.TodoList__clearTodosBtn}
             onClick={clearTodosHandler}
+            size="small"
           >
             Clear Todos
             <DeleteIcon color="error" />

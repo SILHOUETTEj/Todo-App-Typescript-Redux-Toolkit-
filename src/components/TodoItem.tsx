@@ -12,7 +12,6 @@ type TodoItemProps = {
 const TodoItemComponent = ({ data }: TodoItemProps) => {
   const dispatch = useAppDispatch();
   const deleteTodoHandler = () => {
-    console.log(data.id);
     dispatch(deleteTodo(data.id));
   };
   return (
