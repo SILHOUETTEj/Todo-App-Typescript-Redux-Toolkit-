@@ -19,6 +19,14 @@
   overflow: hidden;
 }
 
+.TodoItem__text_done {
+  text-align: start;
+  width: 60%;
+  overflow: hidden;
+  text-decoration: line-through;
+  color:lime;
+}
+
 @media (max-width: 1230px) {
 
   .TodoItem__container {
@@ -46,5 +54,5 @@
     width: 100px;
     height: 25px;
   }
-  
+
 }

@@ -39,6 +39,13 @@ export const todoSlice = createSlice({
     deleteTodo: (state, action: PayloadAction<number>) => {
       state.value = state.value.filter((el) => el.id !== action.payload);
     },
+    toggleTodo: (state, action: PayloadAction<number>) => {
+      state.value.forEach((item) => {
+        if (item.id === action.payload) {
+          item.status = !item.status;
+        }
+      });
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(
@@ -54,7 +61,8 @@ export const todoSlice = createSlice({
   },
 });
 
-export const { addTodo, clearTodos, deleteTodo } = todoSlice.actions;
+export const { addTodo, clearTodos, deleteTodo, toggleTodo } =
+  todoSlice.actions;
 
 export const selectTodos = (state: RootState) => state.todos.value;
 

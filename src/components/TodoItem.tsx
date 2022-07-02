@@ -1,7 +1,7 @@
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Button, Checkbox } from "@mui/material";
 import { useAppDispatch } from "../store/hooks";
-import { deleteTodo, TodoItem } from "../store/todolist/todoSlice";
+import { deleteTodo, TodoItem, toggleTodo } from "../store/todolist/todoSlice";
 
 import styles from "./TodoItem.module.css";
 
@@ -14,11 +14,24 @@ const TodoItemComponent = ({ data }: TodoItemProps) => {
   const deleteTodoHandler = () => {
     dispatch(deleteTodo(data.id));
   };
+
+  const checkBoxHandler = () => {
+    dispatch(toggleTodo(data.id));
+  };
   return (
     <li className={styles.TodoItem}>
       <div className={styles.TodoItem__container}>
-        <div className={styles.TodoItem__text}>{data.text}</div>
-        <Checkbox className={styles.TodoItem__checkbox} />
+        <div
+          className={
+            data.status ? "styles.TodoItem__text_done" : "styles.TodoItem__text"
+          }
+        >
+          {data.text}
+        </div>
+        <Checkbox
+          className={styles.TodoItem__checkbox}
+          onClick={checkBoxHandler}
+        />
         <Button
           className={styles.TodoItem__deleteTodoBtn}
           variant="outlined"
