@@ -19,11 +19,11 @@ const TodoItemComponent = ({ data }: TodoItemProps) => {
     dispatch(toggleTodo(data.id));
   };
   return (
-    <li className={styles.TodoItem}>
+    <li className={data.status ? styles.TodoItem_done : styles.TodoItem}>
       <div className={styles.TodoItem__container}>
         <div
           className={
-            data.status ? "styles.TodoItem__text_done" : "styles.TodoItem__text"
+            data.status ? styles.TodoItem__text_done : styles.TodoItem__text
           }
         >
           {data.text}

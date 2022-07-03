@@ -2,6 +2,11 @@
   list-style: none;
 }
 
+.TodoItem_done {
+  opacity: 50%;
+  list-style: none;
+}
+
 .TodoItem__container {
   margin: 20px auto;
   width: 60%;
@@ -24,7 +29,7 @@
   width: 60%;
   overflow: hidden;
   text-decoration: line-through;
-  color:lime;
+
 }
 
 @media (max-width: 1230px) {
