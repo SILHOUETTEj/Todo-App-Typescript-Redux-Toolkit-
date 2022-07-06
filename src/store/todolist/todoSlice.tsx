@@ -1,5 +1,6 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "./../store";
+import { fetchTodo } from "./asyncAddTodo";
 
 export interface TodoItem {
   id: number;
@@ -9,24 +10,28 @@ export interface TodoItem {
 
 interface TodoState {
   value: TodoItem[];
+  isFetching: boolean;
 }
 
-// Define the initial state using that type
 const initialState: TodoState = {
   value: [],
+  isFetching: false,
 };
+
+export const asyncAddTodo = createAsyncThunk(
+  "todolist/fetchTodo",
+  async (data: TodoItem) => {
+    const response = await fetchTodo(data);
+    return response;
+  }
+);
 
 export const todoSlice = createSlice({
   name: "todolist",
-  // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
-    addTodo: (state, action: PayloadAction<string>) => {
-      state.value.push({
-        id: new Date().getTime(),
-        text: action.payload,
-        status: false,
-      });
+    addTodo: (state, action: PayloadAction<TodoItem>) => {
+      state.value.push(action.payload);
     },
     clearTodos: (state) => {
       state.value = [];
@@ -34,12 +39,31 @@ export const todoSlice = createSlice({
     deleteTodo: (state, action: PayloadAction<number>) => {
       state.value = state.value.filter((el) => el.id !== action.payload);
     },
+    toggleTodo: (state, action: PayloadAction<number>) => {
+      state.value.forEach((item) => {
+        if (item.id === action.payload) {
+          item.status = !item.status;
+        }
+      });
+    },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(
+      asyncAddTodo.fulfilled,
+      (state, action: PayloadAction<TodoItem>) => {
+        state.isFetching = false;
+        state.value.push(action.payload);
+      }
+    );
+    builder.addCase(asyncAddTodo.pending, (state) => {
+      state.isFetching = true;
+    });
   },
 });
 
-export const { addTodo, clearTodos, deleteTodo } = todoSlice.actions;
+export const { addTodo, clearTodos, deleteTodo, toggleTodo } =
+  todoSlice.actions;
 
-// Other code such as selectors can use the imported `RootState` type
 export const selectTodos = (state: RootState) => state.todos.value;
 
 export default todoSlice.reducer;

@@ -12,6 +12,7 @@
   width: 60%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .TodoList__clearTodosBtn {
@@ -39,5 +40,5 @@
   .TodoList__container {
     width: 100%;
   }
-  
+
 }
